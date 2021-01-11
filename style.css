@@ -6,6 +6,11 @@ body{
     display: inline-block;
 }
 
+.cardContainer2 {
+    display: block;
+}
+
+
 .card{
     font-family: 'Carter One', cursive;
     display: inline-block;
