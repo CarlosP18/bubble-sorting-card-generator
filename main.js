@@ -25,11 +25,15 @@ draw.addEventListener("click", (e) => {
         let cardDiv = document.createElement("div");
         let newNumber = randomNumber();
         let newSuit = randomSuit();
+        newNumber == 1 ? "A" : newNumber;
+        newNumber == 11 ? "J" : newNumber;
+        newNumber == 12 ? "Q" : newNumber;
+        newNumber == 13 ? "K" : newNumber;
         cardDiv.classList.add("card");
         cardDiv.classList.add(newSuit);
         let cardSpan = document.createElement("span");
         cardSpan.classList.add("number");
-        cardSpan.innerHTML = newNumber;
+        cardSpan.innerHTML = newNumber === 1 ? "A" : newNumber === 11 ? "J" : newNumber === 12 ? "Q" : newNumber === 13 ? "K" : newNumber;
         cardDiv.appendChild(cardSpan)
         document.querySelector(".cardContainer").appendChild(cardDiv)
 
@@ -43,23 +47,24 @@ draw.addEventListener("click", (e) => {
 
 
 const orderNumbers = () => {
-    let newArrCards = cardsArr.slice();
-    bubbleSort(newArrCards);
+    let newArrCards = bubbleSort(cardsArr);
     console.log(newArrCards);
 
 }
+
+
+
 
 const bubbleSort = (arr) => {
     let wall = arr.length - 1;
     while (wall > 0) {
         let index = 0;
         while (index < wall) {
-            if (arr[index] > arr[index + 1]) {
+            if (arr[index][0] > arr[index + 1][0]) {
                 let aux = arr[index];
                 arr[index] = arr[index + 1];
                 arr[index + 1] = aux;
                 for (let j = 0; j < arr.length; j++) {
-                    // console.log(arr[j]);
                     let cardDiv = document.createElement("div");
                     let newNumber = arr[j][0];
                     let newSuit = arr[j][1];
@@ -67,7 +72,7 @@ const bubbleSort = (arr) => {
                     cardDiv.classList.add(newSuit);
                     let cardSpan = document.createElement("span");
                     cardSpan.classList.add("number");
-                    cardSpan.innerHTML = newNumber;
+                    cardSpan.innerHTML = newNumber === 1 ? "A" : newNumber === 11 ? "J" : newNumber === 12 ? "Q" : newNumber === 13 ? "K" : newNumber;
                     cardDiv.appendChild(cardSpan)
                     let cards = document.querySelector(".cardContainer2")
                     cards.appendChild(cardDiv);
@@ -75,7 +80,7 @@ const bubbleSort = (arr) => {
                         let br = document.createElement("br");
                         cards.appendChild(br);
                     }
-                  }
+                }
             }
             index++;
         }
