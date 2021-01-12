@@ -25,10 +25,6 @@ draw.addEventListener("click", (e) => {
         let cardDiv = document.createElement("div");
         let newNumber = randomNumber();
         let newSuit = randomSuit();
-        newNumber == 1 ? "A" : newNumber;
-        newNumber == 11 ? "J" : newNumber;
-        newNumber == 12 ? "Q" : newNumber;
-        newNumber == 13 ? "K" : newNumber;
         cardDiv.classList.add("card");
         cardDiv.classList.add(newSuit);
         let cardSpan = document.createElement("span");
@@ -45,14 +41,11 @@ draw.addEventListener("click", (e) => {
 });
 
 
-
 const orderNumbers = () => {
     let newArrCards = bubbleSort(cardsArr);
     console.log(newArrCards);
 
 }
-
-
 
 
 const bubbleSort = (arr) => {
